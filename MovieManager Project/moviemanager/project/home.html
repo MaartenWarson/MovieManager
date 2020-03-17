@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<!--v-on & v-model om data te tonen en aan te passen-->
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="movie.png" sizes="16x16" type="image/png">
+  <title>Movie Manager</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="../css/stylesheet.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="app">
+    <br />
+    <h1>Movie Manager</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <!--Als er geen films zijn ingeladen (zie regel 18), wordt deze knop getoond => deze verdwijnt als er films ingeladen zijn-->
+          <button v-on:click="fetchMovies()" class="btn btn-danger" id="showMovies">Toon alle films</button>
+        </div>
+      </div>
+      <br />
+
+      <div>
+        <div class="row">
+          <div class="col-md-4" v-for="movie in movies">
+            <div class="panel panel-default panel-front">
+              <div class="panel-heading" id="heading">
+                <img :src="movie.img" alt="Film image" class="zoom">
+              </div>
+
+              <div class="panel-body">
+                <h5>{{ movie.title }}</h5>
+                <span class="badge">{{movie.genre }}</span>
+                <div class="pull-right">
+                  <button class="btn btn-sm btn-danger"
+                    v-on:click="deleteMovie(movie.id, movie.title, movie.genre, movie.img)">Verwijder</button>
+                </div>
+              </div>
+            </div>
+            <!--Vanaf hier om film te bewerken-->
+            <!--Voor iedere film wordt id getoond en naam (in tekstveld)-->
+            <label for="editTitle" style="margin-right: 52px;">Titel</label>
+            <input id="editTitle" class="edit" type="text" v-model:value="movie.title" required /><br>
+            <label for="editGenre" style="margin-right: 43px;">Genre</label>
+            <select class="edit" name="genre" v-model:value="movie.genre">
+              <option value="Actie">Actie</option>
+              <option value="Komedie">Komedie</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Horror">Horror</option>
+              <option value="Sciencefiction">Sciencefiction</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Andere">Andere</option>
+            </select>
+            <label for="editImg" style="margin-right: 20px;">Afbeelding</label>
+            <input id="editImg" class="edit" type="text" v-model:value="movie.img" pattern="https?://.+" required /><br>
+            <!--inputveld van type 'text'-->
+            <button class="wijzig"
+              v-on:click="updateMovie(movie.id, movie.title, movie.genre, movie.img)">Wijzig</button>
+            <!--Bij klik op de knop wordt updateMovie-methode met 2 parameters uitgevoerd-->
+            <hr>
+
+          </div>
+          <div>
+            <p class='status'>{{ status }}</p>
+          </div>
+          <br>
+          <!--status wordt getoond na klikken op knop-->
+          <div id="error">{{ error }}</div>
+          <!--eventuele error wordt getoond na klikken op knop-->
+        </div>
+      </div>
+      <div>
+        <h2>Voeg film toe</h2>
+        <form action='http://localhost:3000/movies/' method="POST">
+          <label for="title">Titel</label> <br>
+          <input class="add" type="text" name="title" id="title" required> <br>
+          <label for="genre">Genre</label><br>
+          <select class="add" name="genre">
+            <option value="Actie">Actie</option>
+            <option value="Komedie">Komedie</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Horror">Horror</option>
+            <option value="Sciencefiction">Sciencefiction</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Andere">Andere</option>
+          </select><br>
+
+          <label for="img">Afbeelding (url)</label> <br>
+          <input class="add" type="text" name="img" id="img" pattern="https?://.+" required><br> <br>
+          <button type="submit" value="Submit" class="btn btn-primary">Voeg toe</button> <br> <br>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- link om gebruik te maken van VUE-->
+  <script src="/path/to/vue-router.js"></script>
+  <script src="main.js"></script>
+  <script src="hideButton.js"></script>
+</body>
+
+</html>

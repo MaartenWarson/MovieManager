@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<!--v-on & v-model om data te tonen en aan te passen-->
+
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Manager</title>
+  <link href="../css/stylesheet.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+      <br />
+      <br />
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <a href="/movies" class="btn btn-default">Terug</a>
+    </div>
+  </div>
+  
+  <br />
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default panel-front">		
+        <div class="panel-heading">
+          <img src="{{ movie.image.size_1 }}" class="zoom">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3>{{ movie.title }} <span class="badge">{{ movie.genre }}</span></h3>
+      <p>{{ movie.description }}</p>
+      <div>
+        <button class="btn btn-success btn-sm" data-upvote="{{ movie.id }}">+</button> 
+          <span data-upvote-amount>{{ movie.upvote_amount }}</span> 
+        <button class="btn btn-danger btn-sm" data-downvote="{{ movie.id }}">-</button>
+</div>
+    </div>
+  </div>
+  <div class="row">
+   <div class="col-md-12 text-center">
+      <a href="/movies/{{ movie.id }}/edit" class="btn btn-warning">Edit</a>     
+      <table>
+          <form action="/movies/{{ movie.id }}/destroy" method="post">
+          {{csrf_tag}}
+      	  <button type="submit" class="btn btn-danger">Verwijder</button>
+          </form>
+      </table>
+	</div>
+</div>
+
+	<script src="{% javascript_url 'upvote.js' %}"></script>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- link om gebruik te maken van VUE-->
+    <script src="/path/to/vue-router.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

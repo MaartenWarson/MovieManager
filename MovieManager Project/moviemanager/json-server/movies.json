@@ -1,0 +1,34 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "The Lord Of The Rings",
+      "genre": "Actie",
+      "img": "https://static.posters.cz/image/750/poster/lord-of-the-rings-fellowship-i11723.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Harry Potter and the Deathy Hallows pt.1",
+      "genre": "Fantasy",
+      "img": "https://m.media-amazon.com/images/M/MV5BMTQ2OTE1Mjk0N15BMl5BanBnXkFtZTcwODE3MDAwNA@@._V1_.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Taken 3",
+      "genre": "Actie",
+      "img": "http://fr.web.img4.acsta.net/pictures/14/12/05/17/28/036338.jpg"
+    },
+    {
+      "title": "The Martian",
+      "genre": "Andere",
+      "img": "https://blogs.lcms.org/wp-content/uploads/2015/10/martian-IN.jpg",
+      "id": 4
+    },
+    {
+      "title": "The Hunger Games: Mocking Jay pt.1",
+      "genre": "Actie",
+      "img": "https://www.moviemeter.nl/images/cover/98000/98484.jpg?cb=1426802316",
+      "id": 5
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+body {
+  font-family: 'Roboto';
+}
+h1 {
+  font-family: 'Roboto';
+  text-align: center;
+  color: #525252;
+}
+h2 {
+  color: #525252;
+}
+label {
+  color: #525252;
+  margin-top: 12px;
+}
+#showMovies {
+  align-content: center;
+  width: 100%;
+}
+
+.zoom {
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.02);
+  -webkit-box-shadow: 0px 0px 30px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 30px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 30px -12px rgba(0, 0, 0, 0.75);
+  transition: transform .2s;
+}
+
+img {
+  width: 250px;
+  height: 370px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit {
+  border-radius: 8px;
+  margin-right: 6px;
+  width: 270px;
+  border: 1px solid #bdd6ff;
+  background-color: #e3f1ff;
+  padding: 2px; 
+  margin: 3px 0 3px 0;
+}
+
+.wijzig {
+  background-color: #6CB559;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 26px;
+  width: 100%;
+  margin-top: 4px;
+}
+.wijzig:hover {
+  background-color: #49783d;
+
+}
+.status {
+  color: green;
+  margin-left: 17px;
+}
+
+#error {
+  color: red;
+  margin-left: 17px;
+}
+
+input[type=text]{
+  border-radius: 5px;
+  border: 1px solid #bdd6ff;
+}
+select {
+  border-radius: 5px;
+  border: 1px solid #bdd6ff;
+  height: 24px;
+}
+.add {
+  width: 30%;
+}
