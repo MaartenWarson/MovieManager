@@ -11,5 +11,5 @@ This application is written in HTML, CSS (Bootstrap) and JavaScript. Vue is used
 3. Run `json-server --watch movies.json` to start the local JSON server for movies.json
 4. Run the application
 
-## Further information
+## Further Information
 Data needed for movies is stored in a local JSON file included in this project.
