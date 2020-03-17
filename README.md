@@ -12,4 +12,4 @@ This application is written in HTML, CSS (Bootstrap) and JavaScript. Vue is used
 4. Run the application
 
 ## Further information
-Data needed for movies is stored in a local JSON file.
+Data needed for movies is stored in a local JSON file included in this project.
